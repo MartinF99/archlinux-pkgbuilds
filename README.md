@@ -4,4 +4,5 @@
 |-------------|----------|---------
 | lib32-gst-bad-ugly| lib32-gst-plugins-bad, lib32-gst-plugins-ugly, lib32-gst-libav, lib32-plugins-bad-libs | 1.26.0-5 |
 | lunar-magic | lunar-magic | 3.50-1 |
-| lib32-aom | lib32-aom | 3.12.1-1|
+| lib32-aom | lib32-aom | 3.12.1-1 |
+| lib32-faac | lib32-faac | 1.31.1 |
