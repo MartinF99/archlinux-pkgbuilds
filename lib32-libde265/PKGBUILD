@@ -1,0 +1,45 @@
+# Maintainer: Rodrigo Bezerra <rodrigobezerra21 at gmail dot com>
+
+_basename=libde265
+pkgname=lib32-libde265
+pkgver=1.0.15
+pkgrel=1
+pkgdesc='Open h.265 video codec implementation (32-bit)'
+arch=(x86_64)
+url='https://github.com/strukturag/libde265'
+license=(LGPL3)
+depends=(lib32-gcc-libs libde265)
+source=(git+https://github.com/strukturag/libde265#tag=v$pkgver)
+sha256sums=('fc1d3e6e13eae5599070bf469ef4b7edb74efad6831df6fba461779e3293bbd7')
+
+prepare() {
+    cd $_basename
+    ./autogen.sh
+}
+
+build() {
+    cd $_basename
+
+    export CC='gcc -m32'
+    export CXX='g++ -m32'
+    export PKG_CONFIG='/usr/bin/i686-pc-linux-gnu-pkg-config'
+
+    ./configure \
+        --build=i686-pc-linux-gnu \
+        --prefix=/usr \
+        --libdir=/usr/lib32 \
+        --enable-static=no \
+        --disable-sherlock265
+
+    make
+}
+
+package() {
+    cd $_basename
+
+    make DESTDIR="$pkgdir" install
+
+    cd "$pkgdir/usr"
+
+    rm -r bin include
+}

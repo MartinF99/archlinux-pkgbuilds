@@ -6,3 +6,5 @@
 | lunar-magic | lunar-magic | 3.50-1 |
 | lib32-aom | lib32-aom | 3.12.1-1 |
 | lib32-faac | lib32-faac | 1.31.1 |
+| lib32-faad2 | lib32-faad2 | 1.11.2 |
+| lib32-libde265 | lib32-libde265 | 1.0.15|
